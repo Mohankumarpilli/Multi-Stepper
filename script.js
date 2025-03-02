@@ -27,50 +27,50 @@ btn.addEventListener('click', () => {
     validation();
 })
 
-// input_1.addEventListener('keyup', () => {
-//     if(!input_1.classList.contains('hidden')){
-//         req_1.innerText = 'Min 3 Letters'
-//         if(input_1.value.length >= 3){
-//             input_1.classList.replace('border-red-500', 'border-black-500');
-//             req_1.classList.add('hidden')
-//         }
-//     }
-// })
+input_1.addEventListener('keyup', () => {
+    if(!input_1.classList.contains('hidden')){
+        req_1.innerText = 'Min 3 Letters'
+        if(input_1.value.length >= 3){
+            input_1.classList.replace('border-red-500', 'border-black-500');
+            req_1.classList.add('hidden')
+        }
+    }
+})
 
-// input_2.addEventListener('keyup', () => {
-//     if(!input_2.classList.contains('hidden')){
-//         req_2.innerText = 'Should be a Email'
-//         if(isValidEmail(input_2.value)){
-//             input_2.classList.replace('border-red-500', 'border-black-500');
-//             req_2.classList.add('hidden')
-//         }
-//     }
-// })
+input_2.addEventListener('keyup', () => {
+    if(!input_2.classList.contains('hidden')){
+        req_2.innerText = 'Should be a Email'
+        if(isValidEmail(input_2.value)){
+            input_2.classList.replace('border-red-500', 'border-black-500');
+            req_2.classList.add('hidden')
+        }
+    }
+})
 
-// input_3.addEventListener('keydown', (e) => {
+input_3.addEventListener('keydown', (e) => {
 
-//     const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
-//                         'Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab','+','-'];
+    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
+                        'Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab','+','-'];
     
-//     if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) {
-//         if (!input_3.classList.contains('hidden')) {
-//             input_3.classList.remove('border-red-500');
-//             req_3.classList.add('hidden');
-//         }
-//     }
-// });
+    if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) {
+        if (!input_3.classList.contains('hidden')) {
+            input_3.classList.remove('border-red-500');
+            req_3.classList.add('hidden');
+        }
+    }
+});
 
-// input_3.addEventListener('input', () => {
-//     input_3.value = input_3.value.replace(/[^0-9+\-]/g, '');
+input_3.addEventListener('input', () => {
+    input_3.value = input_3.value.replace(/[^0-9+\-]/g, '');
     
-//     input_3.classList.remove('border-red-500');
-//     req_3.classList.add('hidden');
-// });
+    input_3.classList.remove('border-red-500');
+    req_3.classList.add('hidden');
+});
 
-// function isValidEmail(email) {
-//     let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-//     return emailPattern.test(email);
-// }
+function isValidEmail(email) {
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
 
 function decerment_count(){
     count--;
@@ -90,21 +90,21 @@ function decerment_count(){
 function validation() {
     let check = true;
     
-    // if(input_1.value == '' || input_1.value.length < 4){
-    //     input_1.classList.add('border-red-500')
-    //     req_1.classList.remove('hidden')
-    //     check = false;
-    // }
-    // if(input_2.value == '' || !isValidEmail(input_2.value)){
-    //     input_2.classList.add('border-red-500')
-    //     req_2.classList.remove('hidden')
-    //     check = false;
-    // }
-    // if(input_3.value == '' || input_3.value.length < 9){
-    //     input_3.classList.add('border-red-500')
-    //     req_3.classList.remove('hidden')
-    //     check = false;
-    // }
+    if(input_1.value == '' || input_1.value.length < 4){
+        input_1.classList.add('border-red-500')
+        req_1.classList.remove('hidden')
+        check = false;
+    }
+    if(input_2.value == '' || !isValidEmail(input_2.value)){
+        input_2.classList.add('border-red-500')
+        req_2.classList.remove('hidden')
+        check = false;
+    }
+    if(input_3.value == '' || input_3.value.length < 9){
+        input_3.classList.add('border-red-500')
+        req_3.classList.remove('hidden')
+        check = false;
+    }
     
     if(check){
         if(user_detils.length == 0){
