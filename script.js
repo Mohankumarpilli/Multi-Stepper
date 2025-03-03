@@ -82,7 +82,7 @@ function decerment_count(){
         }else{
             circles_id[i].classList.remove('bg-[hsl(205,61%,93%)]');
             circles_id[i].classList.add('bg-[hsl(243,100%,62%)]');
-            circles_id[i].classList.replace('text-white', 'text-black');
+            circles_id[i].classList.replace('text-black', 'text-white');
         }
     }
 }
@@ -126,7 +126,7 @@ function choose_fun(){
         }else{
             circles_id[i].classList.remove('bg-[hsl(205,61%,93%)]');
             circles_id[i].classList.add('bg-[hsl(243,100%,62%)]');
-            circles_id[i].classList.replace('text-white', 'text-black');
+            circles_id[i].classList.replace('text-black', 'text-white');
         }
     }
     if(count == 1){
@@ -239,9 +239,9 @@ function small_ele(img, h_text, p_text,id) {
     container.id = id;
     
     if(id==1){
-        addclass(container,['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-1', 'border-[hsl(243,100%,62%)]', 'rounded-xl', 'flex', 'flex-col', 'justify-between'])
+        addclass(container,['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-2', 'border-[hsl(243,100%,62%)]', 'rounded-xl', 'flex', 'flex-col', 'justify-between', 'bg-[hsl(205,61%,93%)]'])
     }else{
-        addclass(container, ['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-1', 'border-gray-400', 'rounded-xl', 'flex', 'flex-col', 'justify-between']);
+        addclass(container, ['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-2', 'border-gray-400', 'rounded-xl', 'flex', 'flex-col', 'justify-between', 'bg-[hsl(205,61%,93%)]']);
     }
     const content_div = create_ele('div');
     const h3 = create_ele('h3');
@@ -781,10 +781,10 @@ function go_to_Home(ele){
         }else{
             circles_id[i].classList.remove('bg-[hsl(205,61%,93%)]');
             circles_id[i].classList.add('bg-[hsl(243,100%,62%)]');
-            circles_id[i].classList.replace('text-white', 'text-black');
+            circles_id[i].classList.replace('text-black', 'text-white');
         }
     }
-    input_1.value = '';
-    input_2.value = '';
-    input_3.value = '';
+    // input_1.value = '';
+    // input_2.value = '';
+    // input_3.value = '';
 }
