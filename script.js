@@ -26,6 +26,9 @@ let plan_service_price = [
 btn.addEventListener('click', () => {
     validation();
 })
+input_1.addEventListener('focus', () => {
+    // console.log('Input focused!');
+});
 
 input_1.addEventListener('keyup', () => {
     if(!input_1.classList.contains('hidden')){
@@ -118,6 +121,7 @@ function validation() {
 }
 
 function choose_fun(){
+    console.log('hello');
     for(let i = 0; i < circles_id.length; i++){
         if(count == i){
             circles_id[i].classList.add('bg-[hsl(205,61%,93%)]');
@@ -502,7 +506,6 @@ function pick_one(text,para,rupee) {
 
     const title = create_ele('h4');
     ele_text(title,text);
-    console.log(text.includes('L'))
     if(text.includes('L')){
         text_div.classList.add('pr-[52px]')
     }
@@ -630,7 +633,6 @@ function sum_total_price(){
             sum = 150;
         }
     }
-    console.log(plan_service_price)
     for(let i = 1; i < plan_service_price.length; i++){
         if(plan_service_price[i].cost.includes('mo')){
             if(plan_service_price[i].service.includes('Online')){
@@ -663,7 +665,12 @@ function price_chart(text,para,rupee) {
     ele_text(title,text);
     addclass(title,['text-xl','font-extrabold', 'text-[hsl(213,96%,18%)]']);
 
-    const p = create_ele('a')
+    const p = create_ele('p')
+    addclass(p,['underline']);
+    p.addEventListener('click', () => {
+        count = 1;
+        goback_to_2();
+    }); 
     ele_text(p,para);
 
     addchild(text_div,title);
@@ -765,7 +772,6 @@ function five_div(){
     addchild(content_area,p)
 
     addchild(new_div,footer);
-    console.log(count);
 }
 
 function go_to_Home(ele){
@@ -787,4 +793,85 @@ function go_to_Home(ele){
     // input_1.value = '';
     // input_2.value = '';
     // input_3.value = '';
+}
+
+
+function goback_to_2(){
+
+    const div_4 = document.getElementById('4');
+
+    const new_div = create_ele('div');
+    new_div.id = '2';
+
+    const content_area = create_ele('div');
+
+    const footer_area = create_ele('footer');
+
+    const back_button = create_ele('button');
+    back_button.id = 'go-back-btn'
+    ele_text(back_button,'Go Back');
+
+    const next_button = create_ele('button');
+    next_button.id = 'next-btn'
+    ele_text(next_button,'Next Step');
+
+    addchild(footer_area,back_button);
+    addchild(footer_area,next_button);
+
+    addchild(new_div,content_area);
+    addchild(new_div,footer_area);
+
+    addclass(new_div,['px-15', 'pt-17', 'pb-8', 'w-full', 'h-full', 'flex', 'flex-col', 'justify-between'])
+
+    addclass(content_area,['w-full', 'flex', 'flex-col', 'gap-2'])
+
+    addclass(footer_area,['flex', 'justify-between', 'align-middle', 'p-5']);
+
+    addclass(back_button,['text-gray-400', 'font-bold', 'py-3', 'px-5', 'rounded-xl'])
+    addclass(next_button,['bg-[hsl(213,96%,18%)]', 'text-white', 'text-gray-400', 'font-bold', 'py-3', 'px-5', 'rounded-xl'])
+
+    div_4.replaceWith(new_div);
+
+    next_button.addEventListener( 'click', () => {
+        validation();
+    })
+
+    back_button.addEventListener('click', () => {
+        decerment_count();
+        new_div.replaceWith(first_div);
+    });
+
+    const options_div = create_ele('div');
+    addclass(options_div,['w-full', 'flex','flex-col', 'gap-1'])
+        
+    const h1 = create_ele('h1');
+    ele_text(h1,'Select your plan');
+    addclass(h1,['text-4xl', 'font-extrabold', 'text-[hsl(213,96%,18%)]']);
+        
+    const par = create_ele('p');
+    ele_text(par, 'You have the option of monthly or yearly billing.');
+    addclass(par,['text-gray-500', 'pl-0.5']);
+
+
+    addchild(options_div,h1);
+    addchild(options_div,par);
+
+    addchild(content_area,options_div);
+
+    const new_icons = create_ele('div');
+    addclass(new_icons,['my-10', 'flex', 'flex', 'gap-4','h-full', 'w-full'])
+
+    let container_1 = small_ele('bg-[url(./1.svg)]','Arcade','$9/mo','1');
+    let container_2 = small_ele('bg-[url(./2.svg)]','Advance','$12/mo','2');
+    let container_3 = small_ele('bg-[url(./3.svg)]','Pro','$15/mo','3');
+
+    addchild(new_icons,container_1);
+    addchild(new_icons,container_2);
+    addchild(new_icons,container_3);
+
+    addchild(content_area,new_icons);
+
+    let toggle_line = create_toggle();
+
+    addchild(content_area,toggle_line);
 }
