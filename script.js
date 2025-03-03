@@ -797,6 +797,17 @@ function go_to_Home(ele){
 
 
 function goback_to_2(){
+    for(let i = 0; i < circles_id.length; i++){
+        if(count == i){
+            circles_id[i].classList.add('bg-[hsl(205,61%,93%)]');
+            circles_id[i].classList.remove('bg-[hsl(243,100%,62%)]');
+            circles_id[i].classList.replace('text-white', 'text-black');
+        }else{
+            circles_id[i].classList.remove('bg-[hsl(205,61%,93%)]');
+            circles_id[i].classList.add('bg-[hsl(243,100%,62%)]');
+            circles_id[i].classList.replace('text-black', 'text-white');
+        }
+    }
 
     const div_4 = document.getElementById('4');
 
