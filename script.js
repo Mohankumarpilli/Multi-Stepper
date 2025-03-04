@@ -304,11 +304,6 @@ function create_toggle() {
         }
         color_change(Array.from(toggle_circle.classList),h5,h5_1);
     });
-    if (toggle_circle.classList.contains('left-1')) {
-        year = true;
-    } else {
-        year = false;
-    }
 
     return div;
 }
