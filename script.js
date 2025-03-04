@@ -26,9 +26,6 @@ let plan_service_price = [
 btn.addEventListener('click', () => {
     validation();
 })
-input_1.addEventListener('focus', () => {
-    // console.log('Input focused!');
-});
 
 input_1.addEventListener('keyup', () => {
     if(!input_1.classList.contains('hidden')){
@@ -93,7 +90,7 @@ function decerment_count(){
 function validation() {
     let check = true;
     
-    if(input_1.value == '' || input_1.value.length < 4){
+    if(input_1.value == '' || input_1.value.length < 3){
         input_1.classList.add('border-red-500')
         req_1.classList.remove('hidden')
         check = false;
@@ -121,7 +118,6 @@ function validation() {
 }
 
 function choose_fun(){
-    console.log('hello');
     for(let i = 0; i < circles_id.length; i++){
         if(count == i){
             circles_id[i].classList.add('bg-[hsl(205,61%,93%)]');
@@ -245,7 +241,7 @@ function small_ele(img, h_text, p_text,id) {
     if(id==1){
         addclass(container,['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-2', 'border-[hsl(243,100%,62%)]', 'rounded-xl', 'flex', 'flex-col', 'justify-between', 'bg-[hsl(205,61%,93%)]'])
     }else{
-        addclass(container, ['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-2', 'border-gray-400', 'rounded-xl', 'flex', 'flex-col', 'justify-between', 'bg-[hsl(205,61%,93%)]']);
+        addclass(container, ['product-div', 'h-[190px]', 'w-[170px]', 'p-4', 'border-2', 'border-gray-400', 'rounded-xl', 'flex', 'flex-col', 'justify-between', 'bg-white']);
     }
     const content_div = create_ele('div');
     const h3 = create_ele('h3');
@@ -308,6 +304,11 @@ function create_toggle() {
         }
         color_change(Array.from(toggle_circle.classList),h5,h5_1);
     });
+    if (toggle_circle.classList.contains('left-1')) {
+        year = true;
+    } else {
+        year = false;
+    }
 
     return div;
 }
@@ -362,9 +363,11 @@ function price_of_product(ele){
     for(let i of parent){
         if(i.classList.contains('border-[hsl(243,100%,62%)]')){
             i.classList.replace('border-[hsl(243,100%,62%)]','border-gray-400');
+            i.classList.replace('bg-[hsl(205,61%,93%)]', 'bg-white')
         }
     }
     ele.classList.replace('border-gray-400', 'border-[hsl(243,100%,62%)]');
+    ele.classList.replace('bg-white','bg-[hsl(205,61%,93%)]')
 
     const inner_ele = ele.children[1];
     let obj = {
@@ -759,12 +762,7 @@ function five_div(){
 
     const footer = create_ele('footer');
     addclass(footer,['flex', 'justify-end', 'px-7'])
-    const button = create_ele('button');
-    button.innerText = 'home';
-    button.addEventListener('click' ,() => {
-        go_to_Home(new_div);
-    })
-    addchild(footer,button);
+    
 
     addchild(content_area,div)
     addchild(content_area,h1)
@@ -773,28 +771,6 @@ function five_div(){
 
     addchild(new_div,footer);
 }
-
-function go_to_Home(ele){
-    user_detils = [];
-    plan_service_price = [{'plan': 'Arcade', 'price': '$9/mo'}];
-    ele.replaceWith(first_div);
-    count = 0;
-    for(let i = 0; i < circles_id.length; i++){
-        if(count == i){
-            circles_id[i].classList.add('bg-[hsl(205,61%,93%)]');
-            circles_id[i].classList.remove('bg-[hsl(243,100%,62%)]');
-            circles_id[i].classList.replace('text-white', 'text-black');
-        }else{
-            circles_id[i].classList.remove('bg-[hsl(205,61%,93%)]');
-            circles_id[i].classList.add('bg-[hsl(243,100%,62%)]');
-            circles_id[i].classList.replace('text-black', 'text-white');
-        }
-    }
-    // input_1.value = '';
-    // input_2.value = '';
-    // input_3.value = '';
-}
-
 
 function goback_to_2(){
     for(let i = 0; i < circles_id.length; i++){
